@@ -1,0 +1,73 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Learn1", "Learn1", "{D41059F4-515F-42CB-AAD2-4E3AE4511A12}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Task1", "Task1", "{D9A0B1C7-7C7C-4DA1-B87F-F5C713B1A612}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Task1Sample", "Task1Sample", "{6855B9D7-39C4-4096-888F-220AED6092B8}"
+	ProjectSection(SolutionItems) = preProject
+		Learn1\Task1\Task1Sample\readme.md = Learn1\Task1\Task1Sample\readme.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task1Sample", "Learn1\Task1\Task1Sample\Task1Sample\Task1Sample.csproj", "{56D73471-789D-4558-A6DC-075717D856A2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CustomerSub", "CustomerSub", "{36D591C7-65C7-A0D1-1CBC-10CDE441BDC8}"
+	ProjectSection(SolutionItems) = preProject
+		Learn1\Task1\Task1Sample\CustomerSub\readme.md = Learn1\Task1\Task1Sample\CustomerSub\readme.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task1.CustomerSub.Contract", "Learn1\Task1\Task1Sample\CustomerSub\Task1.CustomerSub.Contract\Task1.CustomerSub.Contract.csproj", "{ED18BC43-595B-490D-9F6B-78FB6DED9493}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task1.CustomerSub.Domain", "Learn1\Task1\Task1Sample\CustomerSub\Task1.CustomerSub.Domain\Task1.CustomerSub.Domain.csproj", "{C5549A86-40FE-4DD0-B1FE-222FA2CDF7C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task1.CustomerSub.Application", "Learn1\Task1\Task1Sample\CustomerSub\Task1.CustomerSub.Application\Task1.CustomerSub.Application.csproj", "{C96070DB-2023-47D2-9FD1-5A050BB0861C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task1.CustomerSub.Infra", "Learn1\Task1\Task1Sample\CustomerSub\Task1.CustomerSub.Infra\Task1.CustomerSub.Infra.csproj", "{CB306DB5-9D2E-42F7-B893-4468E4A98DC8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{56D73471-789D-4558-A6DC-075717D856A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56D73471-789D-4558-A6DC-075717D856A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56D73471-789D-4558-A6DC-075717D856A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56D73471-789D-4558-A6DC-075717D856A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED18BC43-595B-490D-9F6B-78FB6DED9493}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED18BC43-595B-490D-9F6B-78FB6DED9493}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED18BC43-595B-490D-9F6B-78FB6DED9493}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED18BC43-595B-490D-9F6B-78FB6DED9493}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5549A86-40FE-4DD0-B1FE-222FA2CDF7C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5549A86-40FE-4DD0-B1FE-222FA2CDF7C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5549A86-40FE-4DD0-B1FE-222FA2CDF7C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5549A86-40FE-4DD0-B1FE-222FA2CDF7C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C96070DB-2023-47D2-9FD1-5A050BB0861C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C96070DB-2023-47D2-9FD1-5A050BB0861C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C96070DB-2023-47D2-9FD1-5A050BB0861C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C96070DB-2023-47D2-9FD1-5A050BB0861C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB306DB5-9D2E-42F7-B893-4468E4A98DC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB306DB5-9D2E-42F7-B893-4468E4A98DC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB306DB5-9D2E-42F7-B893-4468E4A98DC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB306DB5-9D2E-42F7-B893-4468E4A98DC8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D9A0B1C7-7C7C-4DA1-B87F-F5C713B1A612} = {D41059F4-515F-42CB-AAD2-4E3AE4511A12}
+		{6855B9D7-39C4-4096-888F-220AED6092B8} = {D9A0B1C7-7C7C-4DA1-B87F-F5C713B1A612}
+		{56D73471-789D-4558-A6DC-075717D856A2} = {6855B9D7-39C4-4096-888F-220AED6092B8}
+		{36D591C7-65C7-A0D1-1CBC-10CDE441BDC8} = {6855B9D7-39C4-4096-888F-220AED6092B8}
+		{ED18BC43-595B-490D-9F6B-78FB6DED9493} = {36D591C7-65C7-A0D1-1CBC-10CDE441BDC8}
+		{C5549A86-40FE-4DD0-B1FE-222FA2CDF7C7} = {36D591C7-65C7-A0D1-1CBC-10CDE441BDC8}
+		{C96070DB-2023-47D2-9FD1-5A050BB0861C} = {36D591C7-65C7-A0D1-1CBC-10CDE441BDC8}
+		{CB306DB5-9D2E-42F7-B893-4468E4A98DC8} = {36D591C7-65C7-A0D1-1CBC-10CDE441BDC8}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8ABEC309-12BA-4002-A756-AD906482FA06}
+	EndGlobalSection
+EndGlobal
