@@ -16,4 +16,8 @@
     </Compile>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\InventorySubn\Simple.InventorySubn.Infra\Simple.InventorySubn.Infra.csproj" />
+  </ItemGroup>
+
 </Project>
