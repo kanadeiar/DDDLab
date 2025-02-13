@@ -16,10 +16,4 @@
     </Compile>
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\InventorySub\SimpleCQRS.InventorySub.Application\SimpleCQRS.InventorySub.Application.csproj" />
-    <ProjectReference Include="..\InventorySub\SimpleCQRS.InventorySub.Domain\SimpleCQRS.InventorySub.Domain.csproj" />
-    <ProjectReference Include="..\InventorySub\SimpleCQRS.InventorySub.Infra\SimpleCQRS.InventorySub.Infra.csproj" />
-  </ItemGroup>
-
 </Project>
