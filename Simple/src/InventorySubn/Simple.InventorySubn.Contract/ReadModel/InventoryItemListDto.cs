@@ -1,7 +1,7 @@
 ﻿namespace Simple.InventorySubn.Contract.ReadModel;
 
-public struct InventoryItemListDto(Guid id, string name)
+public record InventoryItemListDto(Guid Id, string Name)
 {
-    public Guid Id { get; set; } = id;
-    public string Name { get; set; } = name;
+    public Guid Id { get; set; } = Id;
+    public string Name { get; set; } = Name;
 }

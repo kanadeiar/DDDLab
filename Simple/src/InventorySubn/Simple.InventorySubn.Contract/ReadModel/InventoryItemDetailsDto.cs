@@ -1,14 +1,14 @@
 ﻿namespace Simple.InventorySubn.Contract.ReadModel;
 
-public struct InventoryItemDetailsDto(Guid id, string name, int maxQty, int currentCount, int version)
+public record InventoryItemDetailsDto(Guid Id, string Name, int MaxQty, int CurrentCount, int Version)
 {
-    public Guid Id { get; set; } = id;
+    public Guid Id { get; set; } = Id;
     
-    public string Name { get; set; } = name;
+    public string Name { get; set; } = Name;
 
-    public int MaxQty { get; set; } = maxQty;
+    public int MaxQty { get; set; } = MaxQty;
 
-    public int CurrentCount { get; set; } = currentCount;
+    public int CurrentCount { get; set; } = CurrentCount;
 
-    public int Version { get; set; } = version;
+    public int Version { get; set; } = Version;
 }
