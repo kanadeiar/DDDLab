@@ -1,23 +1,23 @@
 ﻿using Simple.InventorySubn.Application.Abstractions;
-using Simple.InventorySubn.Contract.ReadModel;
 using Simple.InventorySubn.Domain.Abstractions;
 using Simple.InventorySubn.Domain.InventoryAggregate.Events;
+using Simple.InventorySubn.Domain.ReadModel;
 
-namespace Simple.InventorySubn.Application.ReadModel.Views;
+namespace Simple.InventorySubn.Application.ReadModel.Handlers;
 
-public class InventoryItemDetailView(IReadModelStorage storage) : IHandles<InventoryItemCreated>, IHandles<InventoryItemRenamed>,
+public class InventoryItemDetailHanlder(IReadModelStorage storage) : IHandles<InventoryItemCreated>, IHandles<InventoryItemRenamed>,
     IHandles<InventoryItemDeactivated>, IHandles<ItemsRemovedFromInventory>, IHandles<ItemsCheckedInToInventory>, IHandles<MaxQtyChanged>
 {
     public void Handle(InventoryItemCreated message)
     {
-        storage.Details.Add(message.Id, new InventoryItemDetailsDto(message.Id, message.Name, message.MaxQty, 0, 0));
+        storage.Details.Add(message.Id, new InventoryItemDetailsProjection(message.Id, message.Name, message.MaxQty, 0, 0));
     }
 
     public void Handle(InventoryItemRenamed message)
     {
         var details = getDetailsItem(message.Id);
-        details.Name = message.NewName;
-        details.Version = message.Version;
+        var newest = details.Apply(message);
+        storage.Details[message.Id] = newest;
     }
 
     public void Handle(InventoryItemDeactivated message)
@@ -28,25 +28,25 @@ public class InventoryItemDetailView(IReadModelStorage storage) : IHandles<Inven
     public void Handle(ItemsRemovedFromInventory message)
     {
         var details = getDetailsItem(message.Id);
-        details.CurrentCount -= message.Count;
-        details.Version = message.Version;
+        var newest = details.Apply(message);
+        storage.Details[message.Id] = newest;
     }
 
     public void Handle(ItemsCheckedInToInventory message)
     {
         var details = getDetailsItem(message.Id);
-        details.CurrentCount += message.Count;
-        details.Version = message.Version;
+        var newest = details.Apply(message);
+        storage.Details[message.Id] = newest;
     }
 
     public void Handle(MaxQtyChanged message)
     {
         var details = getDetailsItem(message.Id);
-        details.MaxQty = message.NewMaxQty;
-        details.Version = message.Version;
+        var newest = details.Apply(message);
+        storage.Details[message.Id] = newest;
     }
 
-    private InventoryItemDetailsDto getDetailsItem(Guid id)
+    private InventoryItemDetailsProjection getDetailsItem(Guid id)
     {
         if (!storage.Details.TryGetValue(id, out var details))
         {

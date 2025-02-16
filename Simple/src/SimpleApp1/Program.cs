@@ -31,6 +31,7 @@ ServiceLocator.Bus.Send(new CheckInItemsToInventory(first.Id, 5, first.Version))
 ConsoleHelper.Pause();
 
 Console.WriteLine("После изменения:");
+first = model.GetInventoryItemDetails(all.First().Id);
 Console.WriteLine($"{first.Id} {first.Name} max: {first.MaxQty} curr: {first.CurrentCount} {first.Version}");
 
 ConsoleHelper.PrintFooter();

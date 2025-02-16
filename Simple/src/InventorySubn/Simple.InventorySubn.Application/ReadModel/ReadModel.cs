@@ -1,17 +1,17 @@
 ﻿using Simple.InventorySubn.Application.Abstractions;
-using Simple.InventorySubn.Contract.ReadModel;
-using Simple.InventorySubn.Contract.ReadModel.Abstractions;
+using Simple.InventorySubn.Domain.Abstractions;
+using Simple.InventorySubn.Domain.ReadModel;
 
 namespace Simple.InventorySubn.Application.ReadModel;
 
 public class ReadModel(IReadModelStorage database) : IReadModel
 {
-    public IEnumerable<InventoryItemListDto> GetInventoryItems()
+    public IEnumerable<InventoryItemListProjection> GetInventoryItems()
     {
         return database.List;
     }
 
-    public InventoryItemDetailsDto GetInventoryItemDetails(Guid id)
+    public InventoryItemDetailsProjection GetInventoryItemDetails(Guid id)
     {
         return database.Details[id];
     }

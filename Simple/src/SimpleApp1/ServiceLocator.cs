@@ -1,5 +1,5 @@
 ﻿using Simple.InventorySubn.Application.Handlers;
-using Simple.InventorySubn.Application.ReadModel.Views;
+using Simple.InventorySubn.Application.ReadModel.Handlers;
 using Simple.InventorySubn.Domain.InventoryAggregate;
 using Simple.InventorySubn.Domain.InventoryAggregate.Commands;
 using Simple.InventorySubn.Domain.InventoryAggregate.Events;
@@ -22,14 +22,14 @@ public static class ServiceLocator
         bus.RegisterHandler<CheckInItemsToInventory>(commands.Handle);
         bus.RegisterHandler<RemoveItemsFromInventory>(commands.Handle);
         bus.RegisterHandler<ChangeMaxQty>(commands.Handle);
-        var detail = new InventoryItemDetailView(readModelStorage);
+        var detail = new InventoryItemDetailHanlder(readModelStorage);
         bus.RegisterHandler<InventoryItemCreated>(detail.Handle);
         bus.RegisterHandler<InventoryItemDeactivated>(detail.Handle);
         bus.RegisterHandler<InventoryItemRenamed>(detail.Handle);
         bus.RegisterHandler<ItemsCheckedInToInventory>(detail.Handle);
         bus.RegisterHandler<ItemsRemovedFromInventory>(detail.Handle);
         bus.RegisterHandler<MaxQtyChanged>(detail.Handle);
-        var list = new InventoryListView(readModelStorage);
+        var list = new InventoryListHandler(readModelStorage);
         bus.RegisterHandler<InventoryItemCreated>(list.Handle);
         bus.RegisterHandler<InventoryItemRenamed>(list.Handle);
         bus.RegisterHandler<InventoryItemDeactivated>(list.Handle);

@@ -1,10 +1,10 @@
-﻿using Simple.InventorySubn.Contract.ReadModel;
+﻿using Simple.InventorySubn.Domain.ReadModel;
 
 namespace Simple.InventorySubn.Application.Abstractions;
 
 public interface IReadModelStorage
 {
-    Dictionary<Guid, InventoryItemDetailsDto> Details { get; }
+    Dictionary<Guid, InventoryItemDetailsProjection> Details { get; }
 
-    List<InventoryItemListDto> List { get; }
+    List<InventoryItemListProjection> List { get; }
 }

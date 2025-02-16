@@ -1,22 +1,24 @@
 ﻿using Simple.InventorySubn.Application.Abstractions;
-using Simple.InventorySubn.Contract.ReadModel;
 using Simple.InventorySubn.Domain.Abstractions;
 using Simple.InventorySubn.Domain.InventoryAggregate.Events;
+using Simple.InventorySubn.Domain.ReadModel;
 
-namespace Simple.InventorySubn.Application.ReadModel.Views;
+namespace Simple.InventorySubn.Application.ReadModel.Handlers;
 
-public class InventoryListView(IReadModelStorage storage) : IHandles<InventoryItemCreated>, IHandles<InventoryItemRenamed>,
+public class InventoryListHandler(IReadModelStorage storage) : IHandles<InventoryItemCreated>, IHandles<InventoryItemRenamed>,
     IHandles<InventoryItemDeactivated>
 {
     public void Handle(InventoryItemCreated message)
     {
-        storage.List.Add(new InventoryItemListDto(message.Id, message.Name));
+        storage.List.Add(new InventoryItemListProjection(message.Id, message.Name));
     }
 
     public void Handle(InventoryItemRenamed message)
     {
         var item = storage.List.Find(x => x.Id == message.Id);
-        item.Name = message.NewName;
+        var newest = item.Apply(message);
+        var index = storage.List.IndexOf(item);
+        storage.List[index] = newest;
     }
 
     public void Handle(InventoryItemDeactivated message)
