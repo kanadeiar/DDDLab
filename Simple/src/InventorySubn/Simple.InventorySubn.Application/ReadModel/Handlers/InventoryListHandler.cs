@@ -10,14 +10,22 @@ public class InventoryListHandler(IReadModelStorage storage) : IHandles<Inventor
 {
     public void Handle(InventoryItemCreated message)
     {
-        storage.List.Add(new InventoryItemListProjection(message.Id, message.Name));
+        var item = storage.List.Find(x => x.Id == message.Id);
+        if (item is not { } found)
+        {
+            storage.List.Add(new InventoryItemListProjection(message.Id, message.Name));
+        }
     }
 
     public void Handle(InventoryItemRenamed message)
     {
         var item = storage.List.Find(x => x.Id == message.Id);
-        var newest = item.Apply(message);
-        var index = storage.List.IndexOf(item);
+        if (item is not { } found)
+        {
+            throw new KeyNotFoundException(nameof(item));
+        }
+        var index = storage.List.IndexOf(found);
+        var newest = found.Apply(message);
         storage.List[index] = newest;
     }
 
