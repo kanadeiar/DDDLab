@@ -7,6 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="$(SolutionDir)\shared\functional\**\*.*">
+      <Link>Common\%(RecursiveDir)%(FileName)%(Extension)</Link>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Sample2.QuestionnaireSubn.Contract\Sample2.QuestionnaireSubn.Contract.csproj" />
   </ItemGroup>
 

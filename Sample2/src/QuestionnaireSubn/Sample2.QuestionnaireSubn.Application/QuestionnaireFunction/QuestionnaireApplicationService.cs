@@ -11,17 +11,17 @@ public class QuestionnaireApplicationService(IStorage<Questionnaire> storage)
     {
         try
         {
-            //var surName = ConsoleHelper.ReadLineFromConsole("Введите фамилию")!;
-            //var name = ConsoleHelper.ReadLineFromConsole("Введите имя")!;
-            //var age = ConsoleHelper.ReadNumberFromConsole<int>("Введите возраст");
-            //var height = ConsoleHelper.ReadNumberFromConsole<int>("Введите рост");
-            //var weight = ConsoleHelper.ReadNumberFromConsole<int>("Введите вес");
+            var surName = ConsoleHelper.ReadLineFromConsole("Введите фамилию")!;
+            var name = ConsoleHelper.ReadLineFromConsole("Введите имя")!;
+            var age = ConsoleHelper.ReadNumberFromConsole<int>("Введите возраст");
+            var height = ConsoleHelper.ReadNumberFromConsole<int>("Введите рост");
+            var weight = ConsoleHelper.ReadNumberFromConsole<int>("Введите вес");
 
-            var surName = "Testov";
-            var name = "Test";
-            var age = 55;
-            var height = 155;
-            var weight = 66;
+            //var surName = "Testov";
+            //var name = "Test";
+            //var age = 55;
+            //var height = 155;
+            //var weight = 66;
 
             var questionnaire = new Questionnaire(new QuestionnaireId(Guid.NewGuid()),
                 new QuestionnaireName(surName, name), new AgeValue(age), new HeightValue(height),
