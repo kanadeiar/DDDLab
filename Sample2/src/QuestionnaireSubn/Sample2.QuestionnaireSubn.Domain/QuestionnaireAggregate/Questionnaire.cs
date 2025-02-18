@@ -8,7 +8,6 @@ namespace Sample2.QuestionnaireSubn.Domain.QuestionnaireAggregate;
 public class Questionnaire : AggregateRoot
 {
     private QuestionnaireId _id;
-    private bool _activated;
     
     public override QuestionnaireId Id => _id;
 
@@ -20,9 +19,9 @@ public class Questionnaire : AggregateRoot
 
     //public WeightValue Weight { get; private set; }
 
-    public Questionnaire(QuestionnaireId id, QuestionnaireName name, AgeValue age, HeightValue height, WeightValue weight)
+    public Questionnaire(QuestionnaireName name, AgeValue age, HeightValue height, WeightValue weight)
     {
-        ApplyChange(new QuestionnaireCreated(id, name, age, height, weight));
+        ApplyChange(new QuestionnaireCreated(QuestionnaireId.New, name, age, height, weight));
     }
 
     public Questionnaire()
@@ -48,7 +47,6 @@ public class Questionnaire : AggregateRoot
     private void when(QuestionnaireCreated ev)
     {
         _id = ev.Id;
-        _activated = true;
         //Name = ev.Name;
         //Age = ev.Age;
         //Height = ev.Height;

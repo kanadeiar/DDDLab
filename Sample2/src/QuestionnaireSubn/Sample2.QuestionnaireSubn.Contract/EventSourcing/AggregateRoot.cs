@@ -9,13 +9,14 @@ public abstract class AggregateRoot
 
     public abstract IIdentity Id { get; }
 
+    public int Version { get; protected set; }
+
     public void LoadsFromHistory(ICollection<DomainEvent> history)
     {
         foreach (var @event in history) Mutate(@event);
     }
 
     public ICollection<DomainEvent> Changes() => _changes;
-
     public void Reset() => _changes.Clear();
 
     protected void ApplyChange(DomainEvent @event)

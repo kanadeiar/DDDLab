@@ -15,8 +15,8 @@ var store = new EventStore(dispatcher);
 var storage = new Storage<Questionnaire>(store);
 
 var readStorage = new ReadStorage();
-var viewer = new Viewer(readStorage, dispatcher);
-viewer.Init();
+var master = new Master(readStorage, dispatcher);
+master.Start();
 
 var service = new QuestionnaireApplicationService(storage);
 
@@ -26,7 +26,7 @@ service.CreateQuestionnaireFromConsole()
 ConsoleHelper.Pause();
 
 ConsoleHelper.PrintLine("Все данные:");
-foreach (var each in viewer.Questionnaires)
+foreach (var each in master.Questionnaires)
 {
     ConsoleHelper.PrintValueWithMessage("Склеивание", each.GluedLine);
     ConsoleHelper.PrintValueWithMessage("Форматирование", each.Formatted);

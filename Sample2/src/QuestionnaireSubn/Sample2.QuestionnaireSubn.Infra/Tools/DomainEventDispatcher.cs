@@ -46,9 +46,10 @@ public class DomainEventDispatcher : IDispatcher
                         {
                             foreach (var each in _events)
                             {
-                                if (!_routes.TryGetValue(each.GetType(), out var handlers)) return;
-
-                                Array.ForEach(handlers.ToArray(), action => action.Invoke(each));
+                                if (_routes.TryGetValue(each.GetType(), out var handlers))
+                                {
+                                    Array.ForEach(handlers.ToArray(), action => action.Invoke(each));
+                                }
                             }
 
                             _events.Clear();
